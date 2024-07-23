@@ -1,0 +1,55 @@
+[font]
+size = 9.5
+
+[font.bold]
+family = "Meslo LGM Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Meslo LGM Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Meslo LGM Nerd Font"
+style = "Regular"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[window]
+dynamic_padding = true
+decorations = "none"
+opacity = 1#0.85
+
+[window.padding]
+x = 20
+y = 20
+
+[colors.primary]
+background = '#32302f'
+foreground = '#d4be98'
+
+[colors.normal]
+black   = '#1D2021'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#d4be98'
+
+[colors.bright]
+black   = '#17191a'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#d4be98'
