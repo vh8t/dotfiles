@@ -9,6 +9,11 @@ return {
 				go = { "goimports", "gofmt" },
 				c = { "clang-format" },
 				rust = { "rustfmt" },
+				java = { "google-java-format" },
+				cpp = { "clang-format" },
+				html = { "prettier" },
+				js = { "prettier" },
+				css = { "prettier" },
 			},
 		})
 

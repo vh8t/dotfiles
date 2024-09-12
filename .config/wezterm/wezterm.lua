@@ -8,7 +8,6 @@ config.font_size = 9.5
 
 config.enable_tab_bar = false
 
-config.window_decorations = "NONE"
 config.window_padding = {
 	left = "20px",
 	right = "20px",

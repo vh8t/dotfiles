@@ -1,46 +1,40 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		config = function()
-			require("mason").setup({})
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"clangd",
-				},
+	"neovim/nvim-lspconfig",
+	lazy = false,
+	config = function()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local lspconfig = require("lspconfig")
+
+		local servers = {
+			"lua_ls",
+			"gopls",
+			"clangd",
+			"rust_analyzer",
+			"hls",
+			"jdtls",
+			"ts_ls",
+			"pyright",
+			"julials",
+		}
+
+		for _, lsp in ipairs(servers) do
+			lspconfig[lsp].setup({
+				capabilities = capabilities,
 			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		lazy = false,
-		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
+		end
 
-			local servers = {
-				"lua_ls",
-				"gopls",
-				"clangd",
-				"rust_analyzer",
-				"hls",
-			}
+		lspconfig.cssls.setup({
+			cmd = { "css-languageserver", "--stdio" },
+			capabilities = capabilities,
+		})
 
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
-					capabilities = capabilities,
-				})
-			end
+		lspconfig.html.setup({
+			cmd = { "html-languageserver", "--stdio" },
+			capabilities = capabilities,
+		})
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
-		end,
-	},
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+	end,
 }

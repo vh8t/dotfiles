@@ -67,6 +67,21 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	command = "setlocal nonumber norelativenumber",
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.c3",
+	command = "set filetype=c3",
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.xyl",
+	command = "set filetype=xylia",
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.ebnf",
+	command = "set filetype=ebnf",
+})
+
 vim.keymap.set("n", "<C-y>", '"+y', { noremap = true, silent = true })
 vim.keymap.set("v", "<C-y>", '"+y', { noremap = true, silent = true })
 
